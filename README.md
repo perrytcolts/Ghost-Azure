@@ -1,4 +1,4 @@
-# Ghost-Azure 
+# Ghost-Azure - blog branch
 ## Your Ghost blog ready for Azure app service deployment. 
 [![Deploy to Azure](https://azuredeploy.net/deploybutton.png)](https://azuredeploy.net/)
 [![Visualize](http://armviz.io/visualizebutton.png)](http://armviz.io/#/?load=https%3A%2F%2Fraw.githubusercontent.com%2Fsolvsoftware%2FGhost-Azure%2Fazure%2Fazuredeploy.json)
