@@ -1,0 +1,41 @@
+{
+	"url": "http://localhost:2368",
+	"server": {
+		"host": "127.0.0.1",
+		"port": 2368	
+    },
+    "database": {
+        "client": "sqlite3",
+        "connection": {
+            "filename": "content/data/ghost.db"
+        },
+        "debug": false
+    },
+    "paths": {
+        "contentPath": "content/"
+    },
+    "storage": {
+        "active": "ghost-storage-azure",
+        "ghost-storage-azure": {
+      "connectionString": "DefaultEndpointsProtocol=https;AccountName=oastoracc;AccountKey=LJiEhcTTqBr+iL5V9tbC4L461M9/LC6n7JLcvgQoZQOVzVwKRU6Hp9chIC9B1zGE68qIHgqPVwWPt+hnKo2LhA==;EndpointSuffix=core.windows.net",
+      "container": "content-dev",
+      "cdnUrl": "oa-content.azureedge.net",
+      "useHttps" : "true",
+      "useDatedFolder" : false
+         }
+    },
+    "privacy": {
+        "useRpcPing": false,
+        "useUpdateCheck": true
+    },
+    "useMinFiles": false,
+    "caching": {
+        "theme": {
+            "maxAge": 0
+        },
+        "admin": {
+            "maxAge": 0
+        }
+	},
+	"forceAdminSSL": false
+}
