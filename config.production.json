@@ -13,5 +13,15 @@
 		"frontend": {
 			"maxAge": 600
 		}
-	}
+    },
+    "storage": {
+        "active": "ghost-storage-azure",
+        "ghost-storage-azure": {
+      "connectionString": "DefaultEndpointsProtocol=https;AccountName=oastoracc;AccountKey=LJiEhcTTqBr+iL5V9tbC4L461M9/LC6n7JLcvgQoZQOVzVwKRU6Hp9chIC9B1zGE68qIHgqPVwWPt+hnKo2LhA==;EndpointSuffix=core.windows.net",
+      "container": "content",
+      "cdnUrl": "oa-content.azureedge.net",
+      "useHttps" : "true",
+      "useDatedFolder" : false
+         }
+    }
 }
