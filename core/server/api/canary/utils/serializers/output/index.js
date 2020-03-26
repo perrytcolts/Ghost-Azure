@@ -101,5 +101,17 @@ module.exports = {
 
     get site() {
         return require('./site');
+    },
+
+    get email_preview() {
+        return require('./email-preview');
+    },
+
+    get emails() {
+        return require('./emails');
+    },
+
+    get labels() {
+        return require('./labels');
     }
 };

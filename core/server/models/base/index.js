@@ -913,6 +913,8 @@ ghostBookshelf.Model = ghostBookshelf.Model.extend({
                 data: data,
                 meta: {pagination: response.pagination}
             };
+        }).catch((err) => {
+            throw err;
         });
     },
 
@@ -1112,8 +1114,7 @@ ghostBookshelf.Model = ghostBookshelf.Model.extend({
         }
 
         // Some keywords cannot be changed
-        const slugList = _.union(config.get('slugs').reserved, urlUtils.getProtectedSlugs());
-        slug = _.includes(slugList, slug) ? slug + '-' + baseName : slug;
+        slug = _.includes(urlUtils.getProtectedSlugs(), slug) ? slug + '-' + baseName : slug;
 
         // if slug is empty after trimming use the model name
         if (!slug) {

@@ -71,6 +71,10 @@ module.exports = {
         return shared.pipeline(require('./members'), localUtils);
     },
 
+    get labels() {
+        return shared.pipeline(require('./labels'), localUtils);
+    },
+
     get images() {
         return shared.pipeline(require('./images'), localUtils);
     },
@@ -105,6 +109,14 @@ module.exports = {
 
     get actions() {
         return shared.pipeline(require('./actions'), localUtils);
+    },
+
+    get email_preview() {
+        return shared.pipeline(require('./email-preview'), localUtils);
+    },
+
+    get emails() {
+        return shared.pipeline(require('./email'), localUtils);
     },
 
     get site() {
