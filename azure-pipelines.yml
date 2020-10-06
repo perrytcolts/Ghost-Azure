@@ -27,6 +27,7 @@ steps:
     location: 'West Europe'
     templateLocation: 'URL of the file'
     csmFileLink: 'https://raw.githubusercontent.com/perrytcolts/Our-Author/non-prod/azuredeploy.json'
+    csmParametersFileLink: 'https://raw.githubusercontent.com/perrytcolts/Our-Author/non-prod/deploymentParameters.json'
     deploymentMode: 'Complete'
     deploymentName: 'TestADODeployment1'
     deploymentOutputs: 'ADODeploymentOutputs'
