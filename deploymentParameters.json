@@ -33,7 +33,7 @@
             "value": ""
           },
           "repoUrl": {
-            "value": "string"
+            "value": "https://github.com/perrytcolts/Our-Author"
           },
           "branch": {
             "value": "non-prod"
