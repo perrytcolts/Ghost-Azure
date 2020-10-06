@@ -3,13 +3,13 @@
     "contentVersion": "1.0.0.0",
     "parameters": {
         "siteName": {
-            "value": "string"
+            "value": "oa-ado-test"
           },
           "hostingPlanName": {
-            "value": "string"
+            "value": "oa-ado-test-asp"
           },
           "siteLocation": {
-            "value": "string"
+            "value": "westeurope"
           },
           "sku": {
             "value": "Free"
