@@ -1,0 +1,32 @@
+# Starter pipeline
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
+
+trigger:
+- master
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+steps:
+- script: echo Hello, world!
+  displayName: 'Run a one-line script'
+
+- script: |
+    echo Add other tasks to build, test, and deploy your project.
+    echo See https://aka.ms/yaml
+  displayName: 'Run a multi-line script'
+- task: AzureResourceManagerTemplateDeployment@3
+  inputs:
+    deploymentScope: 'Resource Group'
+    azureResourceManagerConnection: 'OA - Development(3611a5fa-8822-428e-8376-cc6c995fb533)'
+    subscriptionId: '3611a5fa-8822-428e-8376-cc6c995fb533'
+    action: 'Create Or Update Resource Group'
+    resourceGroupName: 'ado-test-rg01'
+    location: 'West Europe'
+    templateLocation: 'URL of the file'
+    csmFileLink: 'https://raw.githubusercontent.com/perrytcolts/Our-Author/non-prod/azuredeploy.json'
+    deploymentMode: 'Complete'
+    deploymentName: 'TestADODeployment1'
+    deploymentOutputs: 'ADODeploymentOutputs'
