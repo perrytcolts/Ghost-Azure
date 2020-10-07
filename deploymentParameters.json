@@ -31,9 +31,6 @@
           },
           "Email From Address": {
             "value": ""
-          },
-          "branch": {
-            "value": "non-prod"
           }
       }
 }
