@@ -23,8 +23,8 @@ steps:
     azureResourceManagerConnection: 'OA - Development(3611a5fa-8822-428e-8376-cc6c995fb533)'
     subscriptionId: '3611a5fa-8822-428e-8376-cc6c995fb533'
     action: 'Create Or Update Resource Group'
-    resourceGroupName: 'ado-test-rg01'
-    location: 'West Europe'
+    resourceGroupName: $(rgName)
+    location: $(AzureRegion)
     templateLocation: 'URL of the file'
     csmFileLink: 'https://raw.githubusercontent.com/perrytcolts/Our-Author/non-prod/azuredeploy.json'
     csmParametersFileLink: 'https://raw.githubusercontent.com/perrytcolts/Our-Author/non-prod/deploymentParameters.json'
