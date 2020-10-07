@@ -1,4 +1,5 @@
-Array.prototype.forEach.call(document.querySelectorAll('form[data-members-form]'), function (form){
+/* eslint-disable no-var */
+Array.prototype.forEach.call(document.querySelectorAll('form[data-members-form]'), function (form) {
     var errorEl = form.querySelector('[data-members-error]');
     function submitHandler(event) {
         form.removeEventListener('submit', submitHandler);
@@ -7,8 +8,10 @@ Array.prototype.forEach.call(document.querySelectorAll('form[data-members-form]'
             errorEl.innerText = '';
         }
         form.classList.remove('success', 'invalid', 'error');
-        var input = event.target.querySelector('input[data-members-email]');
-        var email = input.value;
+        var emailInput = event.target.querySelector('input[data-members-email]');
+        var nameInput = event.target.querySelector('input[data-members-name]');
+        var email = emailInput.value;
+        var name = nameInput && nameInput.value || undefined;
         var emailType = undefined;
         var labels = [];
 
@@ -22,7 +25,7 @@ Array.prototype.forEach.call(document.querySelectorAll('form[data-members-form]'
         }
 
         form.classList.add('loading');
-        fetch('{{admin-url}}/api/canary/members/send-magic-link/', {
+        fetch('{{blog-url}}/members/api/send-magic-link/', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -30,7 +33,8 @@ Array.prototype.forEach.call(document.querySelectorAll('form[data-members-form]'
             body: JSON.stringify({
                 email: email,
                 emailType: emailType,
-                labels: labels
+                labels: labels,
+                name: name
             })
         }).then(function (res) {
             form.addEventListener('submit', submitHandler);
@@ -72,7 +76,7 @@ Array.prototype.forEach.call(document.querySelectorAll('[data-members-plan]'), f
             errorEl.innerText = '';
         }
         el.classList.add('loading');
-        fetch('{{blog-url}}/members/ssr', {
+        fetch('{{blog-url}}/members/api/session', {
             credentials: 'same-origin'
         }).then(function (res) {
             if (!res.ok) {
@@ -80,7 +84,7 @@ Array.prototype.forEach.call(document.querySelectorAll('[data-members-plan]'), f
             }
             return res.text();
         }).then(function (identity) {
-            return fetch('{{admin-url}}/api/canary/members/create-stripe-checkout-session/', {
+            return fetch('{{blog-url}}/members/api/create-stripe-checkout-session/', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -142,7 +146,7 @@ Array.prototype.forEach.call(document.querySelectorAll('[data-members-edit-billi
             errorEl.innerText = '';
         }
         el.classList.add('loading');
-        fetch('{{blog-url}}/members/ssr', {
+        fetch('{{blog-url}}/members/api/session', {
             credentials: 'same-origin'
         }).then(function (res) {
             if (!res.ok) {
@@ -150,7 +154,7 @@ Array.prototype.forEach.call(document.querySelectorAll('[data-members-edit-billi
             }
             return res.text();
         }).then(function (identity) {
-            return fetch('{{admin-url}}/api/canary/members/create-stripe-setup-session/', {
+            return fetch('{{blog-url}}/members/api/create-stripe-update-session/', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -194,7 +198,7 @@ Array.prototype.forEach.call(document.querySelectorAll('[data-members-signout]')
         event.preventDefault();
         el.classList.remove('error');
         el.classList.add('loading');
-        fetch('{{blog-url}}/members/ssr', {
+        fetch('{{blog-url}}/members/api/session', {
             method: 'DELETE'
         }).then(function (res) {
             if (res.ok) {
@@ -223,7 +227,7 @@ Array.prototype.forEach.call(document.querySelectorAll('[data-members-cancel-sub
             errorEl.innerText = '';
         }
 
-        return fetch('{{blog-url}}/members/ssr', {
+        return fetch('{{blog-url}}/members/api/session', {
             credentials: 'same-origin'
         }).then(function (res) {
             if (!res.ok) {
@@ -232,7 +236,7 @@ Array.prototype.forEach.call(document.querySelectorAll('[data-members-cancel-sub
 
             return res.text();
         }).then(function (identity)  {
-            return fetch('{{admin-url}}/api/canary/members/subscriptions/' + subscriptionId + '/', {
+            return fetch('{{blog-url}}/members/api/subscriptions/' + subscriptionId + '/', {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json'
@@ -273,7 +277,7 @@ Array.prototype.forEach.call(document.querySelectorAll('[data-members-continue-s
             errorEl.innerText = '';
         }
 
-        return fetch('{{blog-url}}/members/ssr', {
+        return fetch('{{blog-url}}/members/api/session', {
             credentials: 'same-origin'
         }).then(function (res) {
             if (!res.ok) {
@@ -282,7 +286,7 @@ Array.prototype.forEach.call(document.querySelectorAll('[data-members-continue-s
 
             return res.text();
         }).then(function (identity)  {
-            return fetch('{{admin-url}}/api/canary/members/subscriptions/' + subscriptionId + '/', {
+            return fetch('{{blog-url}}/members/api/subscriptions/' + subscriptionId + '/', {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json'
