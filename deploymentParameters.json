@@ -1,36 +1,42 @@
 {
-    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "siteName": {
-            "value": "oa-ado-test"
-          },
-          "hostingPlanName": {
-            "value": "oa-ado-test-asp"
-          },
-          "siteLocation": {
-            "value": "westeurope"
-          },
-          "sku": {
-            "value": "Free"
-          },
-          "Worker Size": {
-            "value": "1"
-          },
-          "Deploy App Insights": {
-            "value": true
-          },
-          "Email Service": {
-            "value": "Not configured"
-          },
-          "Email Username": {
-            "value": ""
-          },
-          "Email Password": {
-            "value": ""
-          },
-          "Email From Address": {
-            "value": ""
-          }
-      }
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+      "siteName": {
+          "value": "oa-ado-test"
+        },
+        "hostingPlanName": {
+          "value": "oa-ado-test-asp"
+        },
+        "siteLocation": {
+          "value": "westeurope"
+        },
+        "sku": {
+          "value": "Free"
+        },
+        "Worker Size": {
+          "value": "1"
+        },
+        "Deploy App Insights": {
+          "value": true
+        },
+        "Email Service": {
+          "value": "Not configured"
+        },
+        "Email Username": {
+          "value": ""
+        },
+        "Email Password": {
+          "value": ""
+        },
+        "Email From Address": {
+          "value": ""
+        },
+        "repoUrl": {
+          "value": "https://github.com/perrytcolts/Our-Author"
+        },
+        "branch": {
+          "value": "non-prod"
+        }
+    }
 }
