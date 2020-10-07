@@ -21,6 +21,7 @@
       "container": "content-dev",
       "cdnUrl": "oa-content.azureedge.net",
       "useHttps" : "true",
+      "cacheControl" : "2592000",
       "useDatedFolder" : false
          }
     },
