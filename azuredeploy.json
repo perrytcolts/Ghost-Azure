@@ -56,6 +56,12 @@
     "Email From Address": {
       "type": "string",
       "defaultValue": ""
+    },
+    "repoUrl": {
+      "type": "string"
+    },
+    "branch": {
+      "type": "string"
     }
   },
   "variables": {
