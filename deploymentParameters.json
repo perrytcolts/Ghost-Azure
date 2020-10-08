@@ -32,6 +32,9 @@
           "Email From Address": {
             "value": ""
           },
+          "repoUrl": {
+            "value": "https://github.com/perrytcolts/Our-Author"
+          },
           "branch": {
             "value": "non-prod"
           }
