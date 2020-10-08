@@ -9,6 +9,11 @@
     "paths": {
         "contentPath": "content/"
     },
+    "caching": {
+		"frontend": {
+			"maxAge": 86400
+		}
+    },
     "storage": {
         "active": "ghost-storage-azure",
         "ghost-storage-azure": {
@@ -16,13 +21,7 @@
       "container": "content-dev",
       "cdnUrl": "oa-content.azureedge.net",
       "useHttps" : "true",
-      "cacheControl" : "2592000",
       "useDatedFolder" : false
          }
-    },
-    "caching": {
-		"frontend": {
-			"maxAge": 86400
-		}
     }
 }
