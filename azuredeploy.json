@@ -56,12 +56,6 @@
     "Email From Address": {
       "type": "string",
       "defaultValue": ""
-    },
-    "repoUrl": {
-      "type": "string"
-    },
-    "branch": {
-      "type": "string"
     }
   },
   "variables": {
@@ -119,21 +113,6 @@
             "WEBSITE_NODE_DEFAULT_VERSION": "~12",
             "SCM_COMMAND_IDLE_TIMEOUT": "300",
             "APPINSIGHTS_INSTRUMENTATION_KEY": "[reference(concat('Microsoft.Insights/components/', variables('appInsightsName'))).InstrumentationKey]"
-          }
-        },
-        {
-          "name": "web",
-          "type": "sourcecontrols",
-          "apiVersion": "2016-08-01",
-          "dependsOn": [
-            "[resourceId('Microsoft.Web/sites', parameters('siteName'))]",
-            "[resourceId('Microsoft.Web/sites/config', parameters('siteName'), 'appsettings')]"
-          ],
-          "properties": {
-            "repoUrl": "[parameters('repoUrl')]",
-            "branch": "[parameters('branch')]",
-            "isManualIntegration": true,
-            "deploymentRollbackEnabled": true
           }
         }
       ]
